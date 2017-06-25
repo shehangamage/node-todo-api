@@ -49,3 +49,19 @@ db.collection('Todos').find().toArray().then((docs)=>{
   console.log('Unable to fetch todos', err);
 });
 ```
+
+### Delete documents
+
+#### deleteMany()
+```
+db.collection('Todos').deleteMany({text: 'Eat lunch'}).then((result)=>{
+  console.log(result);
+});
+
+```
+
+#### deleteOne()
+
+```
+
+```
