@@ -77,3 +77,20 @@ db.collection('Users').findOneAndDelete({_id: new ObjectID('594fc3ad8597611f5058
 });
 
 ```
+
+### Updating Data
+
+```
+db.collection('Todos').findOneAndUpdate({
+  _id: new ObjectID('594fdd3796602d99e6e9f4d3')
+}, {
+  $set: {
+    completed: true
+  }
+}, {
+  returnOriginal: false
+}).then((result) => {
+  console.log(result);
+});
+
+```
