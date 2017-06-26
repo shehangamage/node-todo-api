@@ -155,6 +155,8 @@ var User = mongoose.model('User', {
 
 ## Basic Http Endpoint Setup
 
+**install express & body-parser**
+
 ```
 var app = express();
 
