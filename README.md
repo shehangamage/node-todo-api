@@ -139,3 +139,17 @@ var otherTodo = new Todo({
   },(err)=>{console.log('Unable to save todo.');});
 
 ```
+
+
+### Validation mongoose model
+
+```
+var User = mongoose.model('User', {
+  email: {
+    type: String,
+    requred: true,
+    minlength: 1,
+    trim: true
+  }
+});
+```

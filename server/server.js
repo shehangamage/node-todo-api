@@ -5,13 +5,18 @@ mongoose.connect('mongodb://localhost:27017/TodoApp');
 
 var Todo = mongoose.model('Todo',{
   text: {
-    type: String
+    type: String,
+    requred: true,
+    minlength: 3,
+    trim: true
   },
   completed: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   completedAt: {
-    type: Number
+    type: Number,
+    default: null
   }
 });
 
@@ -26,9 +31,7 @@ var Todo = mongoose.model('Todo',{
 
 
 var otherTodo = new Todo({
-  text: 'Some work',
-  completed: false,
-  completedAt: 1234
+  text: 'Clean the workspace.',
 });
 
   otherTodo.save().then((docs)=>{
