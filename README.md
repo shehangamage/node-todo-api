@@ -141,7 +141,7 @@ var otherTodo = new Todo({
 ```
 
 
-### Validation mongoose model
+### Validation with mongoose model
 
 ```
 var User = mongoose.model('User', {
