@@ -140,7 +140,6 @@ var otherTodo = new Todo({
 
 ```
 
-
 ### Validation with mongoose model
 
 ```
@@ -152,4 +151,23 @@ var User = mongoose.model('User', {
     trim: true
   }
 });
+```
+
+## Basic Http Endpoint Setup
+
+```
+var app = express();
+
+app.use(bodyParser.json());
+
+app.post('/todos', (req, res) => {
+  var todo = new Todo({
+    text: req.body.text
+  });
+
+  todo.save().then((docs) => {
+    res.send(docs);
+  }, (err) => {
+    res.status(400).send(err);
+  });
 ```
