@@ -5,7 +5,7 @@
 2. **npm install mongodb --save** install this library
 3. Create connector class
 
-```
+```javascript
 const MongoClient = require('mongodb').MongoClient;
 
 MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db)=>{
