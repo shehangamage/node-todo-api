@@ -23,7 +23,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db)=>{
 
 ### Add data to MongoDB
 
-```
+```javascript
 db.collection('Todos').insertOne({
   text: 'Something to do',
   completed: false
@@ -41,7 +41,7 @@ Result.ops → give all documents inside that collection
 
 ### Fetching data
 
-```
+```javascript
 db.collection('Todos').find().toArray().then((docs)=>{
   console.log('Todos');
   console.log(JSON.stringify(docs, undefined, 2));
@@ -53,7 +53,7 @@ db.collection('Todos').find().toArray().then((docs)=>{
 ### Delete documents
 
 #### deleteMany()
-```
+```javascript
 db.collection('Todos').deleteMany({text: 'Eat lunch'}).then((result)=>{
   console.log(result);
 });
@@ -62,7 +62,7 @@ db.collection('Todos').deleteMany({text: 'Eat lunch'}).then((result)=>{
 
 #### deleteOne()
 
-```
+```javascript
  db.collection('Todos').deleteOne({text: 'Eat lunch'}).then((result)=>{
    console.log(result);
  });
@@ -71,7 +71,7 @@ db.collection('Todos').deleteMany({text: 'Eat lunch'}).then((result)=>{
 
 #### findOneAndDelete()
 
-```
+```javascript
 db.collection('Users').findOneAndDelete({_id: new ObjectID('594fc3ad8597611f50587598')}).then((result)=>{
   console.log(JSON.stringify(result, undefined, 2));
 });
@@ -80,7 +80,7 @@ db.collection('Users').findOneAndDelete({_id: new ObjectID('594fc3ad8597611f5058
 
 ### Updating Data
 
-```
+```javascript
 db.collection('Todos').findOneAndUpdate({
   _id: new ObjectID('594fdd3796602d99e6e9f4d3')
 }, {
@@ -100,7 +100,7 @@ db.collection('Todos').findOneAndUpdate({
 
 ### connection
 
-```
+```javascript
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
@@ -110,7 +110,7 @@ mongoose.connect('mongodb://localhost:27017/TodoApp');
 
 ### Create mongoose model
 
-```
+```javascript
 var Todo = mongoose.model('Todo',{
   text: {
     type: String
@@ -127,7 +127,7 @@ var Todo = mongoose.model('Todo',{
 
 ### save model
 
-```
+```javascript
 var otherTodo = new Todo({
   text: 'Some work',
   completed: false,
@@ -142,7 +142,7 @@ var otherTodo = new Todo({
 
 ### Validation with mongoose model
 
-```
+```javascript
 var User = mongoose.model('User', {
   email: {
     type: String,
@@ -157,7 +157,7 @@ var User = mongoose.model('User', {
 
 **install express & body-parser**
 
-```
+```javascript
 var app = express();
 
 app.use(bodyParser.json());
@@ -176,7 +176,7 @@ app.post('/todos', (req, res) => {
 
 ### Get
 
-```
+```javascript
 app.get('/todos', (req, res)=>{
   Todo.find().then((todos)=>{
     res.send({todos});
